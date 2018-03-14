@@ -9,6 +9,7 @@ export const LOAD_CITY_SUCCESS = '[Weather] Load City Success';
 
 export class LoadCity implements Action {
   readonly type = LOAD_CITY;
+  constructor(public payload: string) {}
 }
 
 export class LoadCityFail implements Action {

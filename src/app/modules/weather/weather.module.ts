@@ -4,14 +4,16 @@ import { SharedModule } from '../../shared/shared.module';
 import { WeatherComponent } from './weather.component';
 
 import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 
-import { reducers } from './store';
+import { reducers, effects } from './store';
 
 @NgModule({
   imports: [
     CommonModule,
     SharedModule,
-    StoreModule.forFeature('weather', reducers)
+    StoreModule.forFeature('weather', reducers),
+    EffectsModule.forFeature(effects)
   ],
   declarations: [WeatherComponent]
 })

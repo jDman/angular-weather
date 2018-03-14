@@ -22,6 +22,6 @@ export class SearchComponent implements OnInit {
   }
 
   seachCity() {
-    console.log(this.searchCityInput.nativeElement.value);
+    this.search.emit(this.searchCityInput.nativeElement.value);
   }
 }

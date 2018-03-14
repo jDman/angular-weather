@@ -2,13 +2,13 @@ import * as fromWeather from '../actions/weather.actions';
 import { Weather } from '../../../../interfaces/weather';
 
 export interface WeatherState {
-  data: Weather[];
+  cities:  Weather[];
   loaded: boolean;
   loading: boolean;
 }
 
 export const initialState = {
-  data: [],
+  cities: [],
   loaded: false,
   loading: false
 };
@@ -29,7 +29,8 @@ export function reducer(
       return {
         ...state,
         loading: false,
-        loaded: true
+        loaded: true,
+        cities: [...state.cities, action.payload]
       };
     }
 
@@ -47,4 +48,4 @@ export function reducer(
 
 export const getCityLoading = (state: WeatherState) => state.loading;
 export const getCityLoaded = (state: WeatherState) => state.loaded;
-export const getCity = (state: WeatherState) => state.data;
+export const getCity = (state: WeatherState) => state.cities;
