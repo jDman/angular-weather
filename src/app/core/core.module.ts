@@ -1,11 +1,31 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import {
+  MatAutocompleteModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatRippleModule,
+  MatFormFieldModule,
+  MatInputModule,
+} from '@angular/material';
+
+const modules = [
+  CommonModule,
+  RouterModule,
+  BrowserAnimationsModule,
+  MatAutocompleteModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatRippleModule,
+  MatFormFieldModule,
+  MatInputModule,
+];
 
 @NgModule({
   imports: [
-    CommonModule,
-    RouterModule
+    ...modules
   ],
   declarations: []
 })
