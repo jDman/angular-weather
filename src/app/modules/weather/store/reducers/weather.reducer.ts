@@ -31,9 +31,11 @@ export function reducer(
       const cityData = {
         city: raw.city.name
       };
-      raw.list.forEach(entry => {
-        const key = moment(entry.dt_txt).format('h a');
-        cityData[key] = entry.main.temp;
+      raw.list.forEach((entry, i) => {
+        if (i % 2 === 0) {
+          const key = moment(entry.dt_txt).format('h a');
+          cityData[key] = entry.main.temp;
+        }
       });
 
       return {

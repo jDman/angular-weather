@@ -1,4 +1,6 @@
-<mat-table #table [dataSource]="cities" *ngIf="cities.length">
+<mat-table [dataSource]="cities"
+           *ngIf="cities.length"
+           class="weather-results">
 
   <!--- Note that these columns can be defined in any order.
         The actual rendered columns are set as a property on the row definition" -->

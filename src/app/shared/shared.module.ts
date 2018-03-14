@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import {
-  MatAutocompleteModule,
   MatButtonModule,
   MatButtonToggleModule,
   MatRippleModule,
   MatTableModule,
+  MatToolbarModule,
   MatFormFieldModule,
   MatInputModule
 } from '@angular/material';
@@ -22,16 +23,17 @@ import { ResultsComponent } from './components/results/results.component';
 const modules = [
   CommonModule,
   FormsModule,
-  ReactiveFormsModule
+  ReactiveFormsModule,
+  FlexLayoutModule
 ];
 
 const materialModules = [
   MatButtonModule,
   MatFormFieldModule,
   MatInputModule,
-  MatAutocompleteModule,
   MatRippleModule,
   MatTableModule,
+  MatToolbarModule,
   MatButtonToggleModule,
   CdkTableModule
 ];

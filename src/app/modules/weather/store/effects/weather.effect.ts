@@ -32,7 +32,7 @@ export class WeatherEffects {
   fetchWeatherByCity(city) {
     const params = {
       q: city,
-      cnt: '4',
+      cnt: '8',
       units: 'metric',
       APPID: '8989b943de2f2ef7348032f267f3879e'
     };
