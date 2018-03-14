@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MatTableDataSource } from '@angular/material';
 
+import { Observable } from 'rxjs/Observable';
+import { filter } from 'rxjs/operators';
 import { map } from 'rxjs/operators';
 
 import { Weather } from '../../../interfaces/weather';
@@ -13,8 +15,7 @@ import { Weather } from '../../../interfaces/weather';
 })
 export class ResultsComponent implements OnInit {
   displayedColumns = ['city', 'temp1', 'temp2', 'temp3', 'temp4'];
-  dataSource: Element[] = [];
-  test;
+  dataSource$: Observable<Element[]>;
 
   constructor(private http: HttpClient) {}
 
@@ -25,23 +26,22 @@ export class ResultsComponent implements OnInit {
       units: 'metric',
 
     };
-    this.dataSource = [
-      {city: 'London', temp1: 1, temp2: 6, temp3: 5, temp4: 4},
-      {city: 'Bristol', temp1: 4, temp2: 7, temp3: 3, temp4: 3},
-      {city: 'Brighton', temp1: 6, temp2: 4, temp3: 4, temp4: 3},
-      {city: 'Bournemouth', temp1: 9, temp2: 5, temp3: 3, temp4: 2},
-      {city: 'Manchester', temp1: 1, temp2: 4, temp3: 3, temp4: 2}
-    ];
 
-    this.test = this
+    this.dataSource$ = this
       .http
       .get('http://api.openweathermap.org/data/2.5/forecast', { params })
       .pipe(
+        filter(data => data != null ),
         map((results: Weather) => {
-         return results;
+         return [{
+           city: results.city.name,
+           temp1: results.list[0].main.temp,
+           temp2: results.list[1].main.temp,
+           temp3: results.list[2].main.temp,
+           temp4: results.list[3].main.temp
+         }];
         })
-      )
-      .subscribe(results => console.log(results));
+      );
   }
 }
 
