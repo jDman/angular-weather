@@ -50,11 +50,11 @@ export interface WeatherList {
 }
 
 export interface Weather {
-  city: WeatherCity;
-  coord: WeatherCoord;
-  country: string;
-  cod: string;
-  message: number;
-  cnt: number;
-  list: WeatherList[];
+  city?: WeatherCity;
+  coord?: WeatherCoord;
+  country?: string;
+  cod?: string;
+  message?: number;
+  cnt?: number;
+  list?: WeatherList[];
 }

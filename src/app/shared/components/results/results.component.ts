@@ -24,7 +24,7 @@ export class ResultsComponent implements OnInit {
       q: 'london',
       cnt: '4',
       units: 'metric',
-
+      APPID: '8989b943de2f2ef7348032f267f3879e'
     };
 
     this.dataSource$ = this

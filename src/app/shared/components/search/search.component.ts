@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Output, ViewChild, ElementRef, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
@@ -8,6 +8,9 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class SearchComponent implements OnInit {
   @ViewChild('searchCityInput') searchCityInput: ElementRef;
+
+  @Output() search = new EventEmitter<string>();
+
   searchCityForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder) { }
