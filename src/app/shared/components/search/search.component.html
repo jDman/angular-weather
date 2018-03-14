@@ -2,8 +2,13 @@
       [formGroup]="searchCityForm">
   <mat-form-field>
     <input matInput
+           #searchCityInput
            [placeholder]="'Search a city'"
            [value]="">
   </mat-form-field>
-  <button mat-raised-button color="primary">Search</button>
+  <button (click)="seachCity()"
+          mat-raised-button
+          color="primary">
+    Search
+  </button>
 </form>

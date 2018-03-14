@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
@@ -7,6 +7,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
+  @ViewChild('searchCityInput') searchCityInput: ElementRef;
   searchCityForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder) { }
@@ -17,4 +18,7 @@ export class SearchComponent implements OnInit {
     });
   }
 
+  seachCity() {
+    console.log(this.searchCityInput.nativeElement.value);
+  }
 }
