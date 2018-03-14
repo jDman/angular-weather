@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MatTableDataSource } from '@angular/material';
 
@@ -14,8 +14,11 @@ import { Weather } from '../../../interfaces/weather';
   styleUrls: ['./results.component.css']
 })
 export class ResultsComponent implements OnInit {
+  @Input() cities: Weather[];
+
   displayedColumns = ['city', 'temp1', 'temp2', 'temp3', 'temp4'];
   dataSource$: Observable<Element[]>;
+  dataSource: Element[];
 
   constructor(private http: HttpClient) {}
 
@@ -24,8 +27,20 @@ export class ResultsComponent implements OnInit {
       q: 'london',
       cnt: '4',
       units: 'metric',
-      APPID: '8989b943de2f2ef7348032f267f3879e'
+
     };
+
+    this.dataSource = this.cities
+      .filter(data => data != null)
+      .map((results) => {
+        return {
+          city: results.city.name,
+          temp1: results.list[0].main.temp,
+          temp2: results.list[1].main.temp,
+          temp3: results.list[2].main.temp,
+          temp4: results.list[3].main.temp
+        };
+      });
 
     this.dataSource$ = this
       .http

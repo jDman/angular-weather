@@ -1,14 +1,14 @@
 import * as fromWeather from '../actions/weather.actions';
-import { Weather } from '../../interfaces/weather';
+import { Weather } from '../../../../interfaces/weather';
 
 export interface WeatherState {
-  data: Weather;
+  data: Weather[];
   loaded: boolean;
   loading: boolean;
 }
 
 export const initialState = {
-  data: {},
+  data: [],
   loaded: false,
   loading: false
 };
@@ -44,3 +44,7 @@ export function reducer(
 
   return state;
 }
+
+export const getCityLoading = (state: WeatherState) => state.loading;
+export const getCityLoaded = (state: WeatherState) => state.loaded;
+export const getCity = (state: WeatherState) => state.data;

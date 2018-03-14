@@ -1,6 +1,6 @@
 import { Action } from '@ngrx/store';
 
-import { Weather } from '../../interfaces/weather';
+import { Weather } from '../../../../interfaces/weather';
 
 // load city
 export const LOAD_CITY = '[Weather] Load City';

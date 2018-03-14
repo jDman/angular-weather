@@ -1,3 +1,3 @@
-<app-search></app-search>
+<app-search (search)="citySearch($event)"></app-search>
 
-<app-results></app-results>
+<app-results [cities]="(cities$ | async)"></app-results>
