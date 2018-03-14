@@ -1,4 +1,4 @@
-<mat-table #table [dataSource]="dataSource">
+<mat-table #table [dataSource]="cities" *ngIf="cities.length">
 
   <!--- Note that these columns can be defined in any order.
         The actual rendered columns are set as a property on the row definition" -->
@@ -10,27 +10,27 @@
   </ng-container>
 
   <!-- temp1 Column -->
-  <ng-container matColumnDef="temp1">
-    <mat-header-cell *matHeaderCellDef>  </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.temp1}} </mat-cell>
+  <ng-container [matColumnDef]="displayedColumns[1]">
+    <mat-header-cell *matHeaderCellDef> {{displayedColumns[1]}} </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element[displayedColumns[1]]}} C </mat-cell>
   </ng-container>
 
   <!-- temp2 Column -->
-  <ng-container matColumnDef="temp2">
-    <mat-header-cell *matHeaderCellDef>  </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.temp2}} </mat-cell>
+  <ng-container [matColumnDef]="displayedColumns[2]">
+    <mat-header-cell *matHeaderCellDef> {{displayedColumns[2]}} </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element[displayedColumns[2]]}} C </mat-cell>
   </ng-container>
 
   <!-- temp3 Column -->
-  <ng-container matColumnDef="temp3">
-    <mat-header-cell *matHeaderCellDef>  </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.temp3}} </mat-cell>
+  <ng-container [matColumnDef]="displayedColumns[3]">
+    <mat-header-cell *matHeaderCellDef> {{displayedColumns[3]}} </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element[displayedColumns[3]]}} C </mat-cell>
   </ng-container>
 
   <!-- temp4 Column -->
-  <ng-container matColumnDef="temp4">
-    <mat-header-cell *matHeaderCellDef>  </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.temp4}} </mat-cell>
+  <ng-container [matColumnDef]="displayedColumns[4]">
+    <mat-header-cell *matHeaderCellDef> {{displayedColumns[4]}} </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element[displayedColumns[4]]}} C </mat-cell>
   </ng-container>
 
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

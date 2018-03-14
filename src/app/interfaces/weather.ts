@@ -58,3 +58,7 @@ export interface Weather {
   cnt?: number;
   list?: WeatherList[];
 }
+
+export interface WeatherSummary {
+  city: string;
+}

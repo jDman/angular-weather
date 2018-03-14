@@ -1,8 +1,9 @@
 import * as fromWeather from '../actions/weather.actions';
-import { Weather } from '../../../../interfaces/weather';
+import { Weather, WeatherSummary } from '../../../../interfaces/weather';
+import * as moment from 'moment';
 
 export interface WeatherState {
-  cities:  Weather[];
+  cities:  WeatherSummary[];
   loaded: boolean;
   loading: boolean;
 }
@@ -26,11 +27,20 @@ export function reducer(
     }
 
     case fromWeather.LOAD_CITY_SUCCESS: {
+      const raw = action.payload;
+      const cityData = {
+        city: raw.city.name
+      };
+      raw.list.forEach(entry => {
+        const key = moment(entry.dt_txt).format('h a');
+        cityData[key] = entry.main.temp;
+      });
+
       return {
         ...state,
         loading: false,
         loaded: true,
-        cities: [...state.cities, action.payload]
+        cities: [...state.cities, cityData]
       };
     }
 
