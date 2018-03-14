@@ -2,25 +2,13 @@ import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import {
-  MatAutocompleteModule,
-  MatButtonModule,
-  MatButtonToggleModule,
-  MatRippleModule,
-  MatFormFieldModule,
-  MatInputModule,
-} from '@angular/material';
+import { HttpClientModule } from '@angular/common/http';
 
 const modules = [
   CommonModule,
   RouterModule,
   BrowserAnimationsModule,
-  MatAutocompleteModule,
-  MatButtonModule,
-  MatButtonToggleModule,
-  MatRippleModule,
-  MatFormFieldModule,
-  MatInputModule,
+  HttpClientModule
 ];
 
 @NgModule({

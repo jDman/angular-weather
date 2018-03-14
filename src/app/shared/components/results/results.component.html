@@ -1,0 +1,38 @@
+<mat-table #table [dataSource]="dataSource">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- city Column -->
+  <ng-container matColumnDef="city">
+    <mat-header-cell *matHeaderCellDef> city </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.city}} </mat-cell>
+  </ng-container>
+
+  <!-- temp1 Column -->
+  <ng-container matColumnDef="temp1">
+    <mat-header-cell *matHeaderCellDef>  </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.temp1}} </mat-cell>
+  </ng-container>
+
+  <!-- temp2 Column -->
+  <ng-container matColumnDef="temp2">
+    <mat-header-cell *matHeaderCellDef>  </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.temp2}} </mat-cell>
+  </ng-container>
+
+  <!-- temp3 Column -->
+  <ng-container matColumnDef="temp3">
+    <mat-header-cell *matHeaderCellDef>  </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.temp3}} </mat-cell>
+  </ng-container>
+
+  <!-- temp4 Column -->
+  <ng-container matColumnDef="temp4">
+    <mat-header-cell *matHeaderCellDef>  </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.temp4}} </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>

@@ -8,16 +8,20 @@ import { WeatherModule } from './modules/weather/weather.module';
 
 import { AppComponent } from './app.component';
 
+const modules = [
+  BrowserModule,
+  CoreModule,
+  SharedModule,
+  AppRoutingModule,
+  WeatherModule
+];
+
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    BrowserModule,
-    CoreModule,
-    SharedModule,
-    AppRoutingModule,
-    WeatherModule
+    ...modules
   ],
   providers: [],
   bootstrap: [AppComponent]
