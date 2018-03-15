@@ -30,7 +30,7 @@ export function reducer(
       const raw = action.payload;
       if (raw.list) {
         const cityData = {
-          city: raw.city.name
+          city: `${raw.city.name}, ${raw.city.country}`
         };
         raw.list.forEach((entry, i) => {
           if (i % 2 === 0) {

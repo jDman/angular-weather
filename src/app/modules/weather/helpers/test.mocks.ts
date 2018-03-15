@@ -1,7 +1,7 @@
 import { Weather } from '../../../interfaces/weather';
 
 export const city = 'london';
-export const mockReturn = [ { city: 'London', '12 pm': 10.56  } ];
+export const mockReturn = [ { city: 'London, GB', '12 pm': 10.56  } ];
 export const weather: Weather = {
   cod: '200',
   message: 0.0125,
