@@ -20,7 +20,9 @@ export class ResultsComponent implements OnChanges {
 
   ngOnChanges() {
     if (this.cities.length > 0 && this.displayedColumns.length === 1) {
-      this.displayedColumns = this.displayedColumns.concat(Object.keys(this.cities[0]).filter(data => data !== 'city'));
+      this.displayedColumns = this.displayedColumns.concat(
+        Object.keys(this.cities[0]).filter(data => data !== 'city')
+      );
     }
   }
 }
