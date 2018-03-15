@@ -1,9 +1,18 @@
-import { Component, OnInit, AfterViewInit, Output, ViewChild, ElementRef, EventEmitter } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  AfterViewInit,
+  Output,
+  ViewChild,
+  ElementRef,
+  EventEmitter,
+  ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {

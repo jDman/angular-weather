@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, ChangeDetectionStrategy } from '@angular/core';
 import { MatTableDataSource } from '@angular/material';
 
 import { Observable } from 'rxjs/Observable';
@@ -10,6 +10,7 @@ import { WeatherSummary } from '../../../interfaces/weather';
 @Component({
   selector: 'app-results',
   templateUrl: './results.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['./results.component.css']
 })
 export class ResultsComponent implements OnChanges {

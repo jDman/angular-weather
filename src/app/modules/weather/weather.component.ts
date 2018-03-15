@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 import { Store } from '@ngrx/store';
 
@@ -10,6 +10,7 @@ import { WeatherSummary } from '../../interfaces/weather';
 @Component({
   selector: 'app-weather',
   templateUrl: './weather.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['./weather.component.css']
 })
 export class WeatherComponent implements OnInit {
