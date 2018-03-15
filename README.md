@@ -1,6 +1,7 @@
 # AngularWeather
 
-This application uses Angular 5 and ngrx with the openweathermap api. The ui allows you to search for cities and displays the next 24 hours weather forecast.
+This application uses Angular 5 and ngrx state management with the openweathermap api.
+The ui allows you to search for cities and displays the next 24 hours weather forecast.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
 
