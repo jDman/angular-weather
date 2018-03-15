@@ -6,7 +6,7 @@ import { catchError } from 'rxjs/operators';
 
 @Injectable()
 export class WeatherService {
-  url = 'http://api.openweathermap.org/data/2.5/forecast';
+  url = 'https://api.openweathermap.org/data/2.5/forecast';
   params = {
     q: '',
     cnt: '8',
