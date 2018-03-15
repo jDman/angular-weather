@@ -13,7 +13,7 @@ import { WeatherSummary } from '../../../interfaces/weather';
   styleUrls: ['./results.component.css']
 })
 export class ResultsComponent implements OnChanges {
-  @Input() cities: WeatherSummary[];
+  @Input() cities: WeatherSummary[] = [];
   displayedColumns = ['city'];
   constructor() { }
 

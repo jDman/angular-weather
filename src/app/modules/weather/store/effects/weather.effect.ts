@@ -10,8 +10,6 @@ import * as weatherActions from '../actions/weather.actions';
 import { Weather } from '../../../../interfaces/weather';
 import { Observable } from 'rxjs/Observable';
 
-
-
 @Injectable()
 export class WeatherEffects {
   constructor(private actions$: Actions, private http: HttpClient) { }
