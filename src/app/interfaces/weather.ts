@@ -1,6 +1,9 @@
 export interface WeatherCity {
   id: number;
   name: string;
+  population?: number;
+  coord?: WeatherCoord;
+  country?: string;
 }
 
 export interface WeatherCoord {
@@ -42,7 +45,7 @@ export interface WeatherSys {
 export interface WeatherList {
   dt: number;
   main: WeatherMain;
-  weather: WeatherDescription;
+  weather: WeatherDescription[];
   clouds: WeatherClouds;
   wind: WeatherWind;
   sys: WeatherSys;
@@ -51,8 +54,6 @@ export interface WeatherList {
 
 export interface Weather {
   city?: WeatherCity;
-  coord?: WeatherCoord;
-  country?: string;
   cod?: string;
   message?: number;
   cnt?: number;

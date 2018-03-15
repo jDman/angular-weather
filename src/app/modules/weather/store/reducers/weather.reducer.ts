@@ -3,13 +3,13 @@ import { Weather, WeatherSummary } from '../../../../interfaces/weather';
 import * as moment from 'moment';
 
 export interface WeatherState {
-  cities:  WeatherSummary[];
+  weather:  WeatherSummary[];
   loaded: boolean;
   loading: boolean;
 }
 
 export const initialState = {
-  cities: [],
+  weather: [],
   loaded: false,
   loading: false
 };
@@ -28,22 +28,26 @@ export function reducer(
 
     case fromWeather.LOAD_CITY_SUCCESS: {
       const raw = action.payload;
-      const cityData = {
-        city: raw.city.name
-      };
-      raw.list.forEach((entry, i) => {
-        if (i % 2 === 0) {
-          const key = moment(entry.dt_txt).format('h a');
-          cityData[key] = entry.main.temp;
-        }
-      });
+      if (raw.list) {
+        const cityData = {
+          city: raw.city.name
+        };
+        raw.list.forEach((entry, i) => {
+          if (i % 2 === 0) {
+            const key = moment(entry.dt_txt).format('h a');
+            cityData[key] = entry.main.temp;
+          }
+        });
 
-      return {
-        ...state,
-        loading: false,
-        loaded: true,
-        cities: [...state.cities, cityData]
-      };
+        return {
+          ...state,
+          loading: false,
+          loaded: true,
+          weather: [...state.weather, cityData]
+        };
+      } else {
+        return state;
+      }
     }
 
     case fromWeather.LOAD_CITY_FAIL: {
@@ -60,4 +64,4 @@ export function reducer(
 
 export const getCityLoading = (state: WeatherState) => state.loading;
 export const getCityLoaded = (state: WeatherState) => state.loaded;
-export const getCity = (state: WeatherState) => state.cities;
+export const getCity = (state: WeatherState) => state.weather;
