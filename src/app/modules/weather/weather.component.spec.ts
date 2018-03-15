@@ -12,6 +12,7 @@ import { WeatherComponent } from './weather.component';
 import { WeatherSummary } from '../../interfaces/weather';
 
 import Spy = jasmine.Spy;
+import { NullTemplateVisitor } from '@angular/compiler';
 
 describe('WeatherComponent', () => {
   let component: WeatherComponent;
@@ -41,7 +42,6 @@ describe('WeatherComponent', () => {
 
   beforeEach(() => {
     dispatchSpy = spyOn(TestBed.get(Store), 'dispatch');
-
     fixture = TestBed.createComponent(WeatherComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -51,16 +51,12 @@ describe('WeatherComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should dispatch a LoadCity action to the store on init', () => {
-    fixture.detectChanges();
-
-    expect(dispatchSpy).toHaveBeenCalledWith(new fromReducers.LoadCity(''));
-  });
-
   describe('citySearch', () => {
     it('should dispatch an action to the store when called', () => {
       const searchQuery = 'london';
-      citySearchSpy = spyOn(component, 'citySearch').and.callFake(() => {});
+      citySearchSpy = spyOn(component, 'citySearch').and.callFake(() => {
+        dispatchSpy.call(null);
+      });
 
       citySearchSpy(searchQuery);
 

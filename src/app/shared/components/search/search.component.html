@@ -7,7 +7,7 @@
     <input matInput
            #searchCityInput
            [placeholder]="'Search a city'"
-           [value]="searchCityForm.controls.q.value">
+           [value]="query$ | async">
   </mat-form-field>
   <button (click)="seachCity()"
           mat-raised-button
