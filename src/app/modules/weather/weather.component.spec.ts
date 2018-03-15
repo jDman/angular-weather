@@ -11,10 +11,13 @@ import { WeatherComponent } from './weather.component';
 
 import { WeatherSummary } from '../../interfaces/weather';
 
+import Spy = jasmine.Spy;
+
 describe('WeatherComponent', () => {
   let component: WeatherComponent;
   let fixture: ComponentFixture<WeatherComponent>;
-  let store: Store<fromReducers.CityWeatherState>;
+  let dispatchSpy: Spy;
+  let citySearchSpy: Spy;
 
   const cityWeather: WeatherSummary[] = [
     {city: 'London'}
@@ -37,6 +40,8 @@ describe('WeatherComponent', () => {
   }));
 
   beforeEach(() => {
+    dispatchSpy = spyOn(TestBed.get(Store), 'dispatch');
+
     fixture = TestBed.createComponent(WeatherComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -44,5 +49,25 @@ describe('WeatherComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should dispatch a LoadCity action to the store on init', () => {
+    fixture.detectChanges();
+
+    expect(dispatchSpy).toHaveBeenCalledWith(new fromReducers.LoadCity(''));
+  });
+
+  describe('citySearch', () => {
+    it('should dispatch an action to the store when called', () => {
+      const searchQuery = 'london';
+      citySearchSpy = spyOn(component, 'citySearch').and.callFake(() => {});
+
+      citySearchSpy(searchQuery);
+
+      fixture.detectChanges();
+
+      expect(citySearchSpy).toHaveBeenCalledWith(searchQuery);
+      expect(dispatchSpy).toHaveBeenCalled();
+    });
   });
 });

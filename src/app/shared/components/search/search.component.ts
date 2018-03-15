@@ -23,5 +23,6 @@ export class SearchComponent implements OnInit {
 
   seachCity() {
     this.search.emit(this.searchCityInput.nativeElement.value);
+    this.searchCityForm.reset();
   }
 }

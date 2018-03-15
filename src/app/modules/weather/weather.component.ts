@@ -19,7 +19,7 @@ export class WeatherComponent implements OnInit {
 
   ngOnInit() {
     this.cities$ = this.store.select(fromStore.getCity);
-    this.store.dispatch(new fromStore.LoadCity('london'));
+    this.store.dispatch(new fromStore.LoadCity(''));
   }
 
   citySearch(city: string) {
