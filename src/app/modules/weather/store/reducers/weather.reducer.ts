@@ -1,6 +1,7 @@
 import * as fromWeather from '../actions/weather.actions';
 import { Weather, WeatherSummary } from '../../../../interfaces/weather';
 import * as moment from 'moment';
+import * as _ from 'lodash';
 
 export interface WeatherState {
   weather:  WeatherSummary[];
@@ -43,7 +44,7 @@ export function reducer(
           ...state,
           loading: false,
           loaded: true,
-          weather: [...state.weather, cityData]
+          weather: _.uniqBy([...state.weather, cityData], (weather) => weather.city)
         };
       } else {
         return state;
