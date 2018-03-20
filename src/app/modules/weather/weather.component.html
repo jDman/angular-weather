@@ -1,5 +1,9 @@
-<div >
+<div>
   <app-search (search)="citySearch($event)"></app-search>
+
+  <div [hidden]="!(noResults$ | async)">
+    <span>No results</span>
+  </div>
 
   <app-results [cities]="(cities$ | async)"></app-results>
 </div>

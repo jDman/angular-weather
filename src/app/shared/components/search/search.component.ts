@@ -1,7 +1,6 @@
 import {
   Component,
   OnInit,
-  AfterViewInit,
   Output,
   ViewChild,
   ElementRef,
@@ -31,8 +30,7 @@ export class SearchComponent implements OnInit {
   }
 
   seachCity() {
-    this.search.emit(this.searchCityInput.nativeElement.value);
-    this.searchCityInput.nativeElement.value = '';
+    this.search.emit(this.searchCityForm.controls.q.value);
     this.searchCityForm.reset();
   }
 }
