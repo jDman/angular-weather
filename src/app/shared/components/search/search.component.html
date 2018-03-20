@@ -1,15 +1,16 @@
-<form novalidate
-      fxLayout="row"
+<form fxLayout="row"
       fxLayoutAlign="center center"
       fxLayoutGap="30px"
       [formGroup]="searchCityForm">
   <mat-form-field>
     <input matInput
            #searchCityInput
+           formControlName="q"
            [placeholder]="'Search a city'"
            [value]="">
   </mat-form-field>
   <button (click)="seachCity()"
+          [disabled]="searchCityForm.invalid"
           mat-raised-button
           color="primary">
     Search

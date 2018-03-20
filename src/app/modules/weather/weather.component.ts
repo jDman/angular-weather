@@ -19,7 +19,8 @@ export class WeatherComponent implements OnInit {
   constructor(private store: Store<fromStore.CityWeatherState>) {}
 
   ngOnInit() {
-    this.cities$ = this.store.select(fromStore.getCity);
+    this.cities$ = this.store
+      .select(fromStore.getCity);
   }
 
   citySearch(city: string) {
