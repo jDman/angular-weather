@@ -23,7 +23,6 @@ export class WeatherComponent implements OnInit {
   noResults$: Observable<boolean>;
 
   constructor(
-    public snackBar: MatSnackBar,
     private store: Store<fromStore.CityWeatherState>
   ) {}
 
