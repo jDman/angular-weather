@@ -1,5 +1,4 @@
-import {
-  ActionReducerMap } from '@ngrx/store';
+import { ActionReducerMap } from '@ngrx/store';
 
 import * as fromWeather from './weather.reducer';
 
